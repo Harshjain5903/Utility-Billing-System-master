@@ -15,7 +15,7 @@ The project is built using the **MERN** stack:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/arunsah10/Utility-Billing-System.git
+git clone https://github.com/Harshjain5903/Utility-Billing-System-master.git
 cd Utility-Billing-System
 ```
 
@@ -76,8 +76,8 @@ To initialize the database with the first admin user, follow the steps below:
      },
      "employeeId": 123123,
      "firstName": "Arun",
-     "middleName": "Kumar",
-     "lastName": "Sah",
+     "middleName": "",
+     "lastName": "Jain",
      "email": "test@admin.com",
      "phoneNumber": 256723663,
      "gender": "Male",
