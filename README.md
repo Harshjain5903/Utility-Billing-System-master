@@ -185,8 +185,8 @@ docker run -it -d --name backend2 -p 5000:5000 appbackend
 
 ## Author
 
-**Arun Kumar Sah**
+**Harsh Shripal Jain**
 
 ## Copyright
 
-© 2024 Arun Kumar Sah. All rights reserved.
+© 2025 Harsh Shripal. All rights reserved.
