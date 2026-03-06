@@ -1,0 +1,34 @@
+{
+  "name": "utility-billing-system-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Utility Billing Management System",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["utility", "billing", "management", "nodejs", "express", "mongodb"],
+  "author": "Harshjain5903",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.484.0",
+    "@aws-sdk/s3-request-presigner": "^3.484.0",
+    "axios": "^1.3.4",
+    "cloudinary": "^1.41.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.2",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
