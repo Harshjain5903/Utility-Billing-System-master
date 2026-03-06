@@ -8,6 +8,7 @@ import { baseApiURL } from "../baseUrl";
 const Login = () => {
   const navigate = useNavigate();
   const [selected, setSelected] = useState("User");
+  const [loading, setLoading] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
   
   const onSubmit = (data) => {
@@ -22,6 +23,8 @@ const Login = () => {
       toast.error("Password must be at least 4 characters");
       return;
     }
+    
+    setLoading(true);
     const headers = {
       "Content-Type": "application/json",
     };
@@ -32,11 +35,14 @@ const Login = () => {
         headers: headers,
       })
       .then((response) => {
+        toast.success("Login successful!");
+        setLoading(false);
         navigate(`/${selected.toLowerCase()}`, {
           state: { type: selected, loginid: response.data.loginid },
         });
       })
       .catch((error) => {
+        setLoading(false);
         toast.dismiss();
         console.error(error);
         toast.error(error.response?.data?.message || "Login failed");
@@ -97,8 +103,14 @@ const Login = () => {
             <input type="checkbox" id="remember" className="accent-blue-500" />{" "}
             Remember Me
           </div> */}
-          <button className="bg-blue-500 mt-5 text-white px-6 py-2 text-xl rounded-md hover:bg-blue-700 ease-linear duration-300 hover:ease-linear hover:duration-300 hover:transition-all transition-all flex justify-center items-center">
-            Login
+          <button 
+            type="submit"
+            disabled={loading}
+            className={`${
+              loading ? 'bg-blue-300 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-700'
+            } mt-5 text-white px-6 py-2 text-xl rounded-md ease-linear duration-300 hover:ease-linear hover:duration-300 hover:transition-all transition-all flex justify-center items-center`}
+          >
+            {loading ? "Logging in..." : "Login"}
             <span className="ml-2">
               <FiLogIn />
             </span>
