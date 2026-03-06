@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const { errorHandler, notFound } = require("./middlewares/error.middleware");
+const logger = require("./middlewares/logger.middleware");
 connectToMongo();
 const port = 5000 || process.env.PORT;
 var cors = require("cors");
@@ -11,6 +12,10 @@ app.use(cors({
   origin: [process.env.FRONTEND_API_LINK, 'http://frontend:3000', 'http://localhost:3000', true],
   credentials: true
 }));
+
+// Request logging middleware
+app.use(logger);
+
 app.use(express.json()); //to convert request data to json
 
 app.use('/media', express.static(path.join(__dirname, 'media')));
